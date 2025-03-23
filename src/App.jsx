@@ -20,11 +20,11 @@ function App() {
         <AuthProvider>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/registro" element={<PrivateRoute><Registro /></PrivateRoute>} />
-                    <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-                    <Route path="/agregar" element={<PrivateRoute><AgregarEmpleado /></PrivateRoute>} />
-                    <Route path="/editar/:id" element={<PrivateRoute><EditarEmpleado /></PrivateRoute>} />
+                    <Route exact path="/" element={<Login />} />
+                    <Route exact path="/registro" element={<PrivateRoute><Registro /></PrivateRoute>} />
+                    <Route exact path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+                    <Route exact path="/agregar" element={<PrivateRoute><AgregarEmpleado /></PrivateRoute>} />
+                    <Route exact path="/editar/:id" element={<PrivateRoute><EditarEmpleado /></PrivateRoute>} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>
