@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter , Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
@@ -18,7 +18,7 @@ function App() {
   return (
     <>
         <AuthProvider>
-            <Router>
+            <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Login />} />
                     <Route path="/registro" element={<PrivateRoute><Registro /></PrivateRoute>} />
@@ -26,7 +26,7 @@ function App() {
                     <Route path="/agregar" element={<PrivateRoute><AgregarEmpleado /></PrivateRoute>} />
                     <Route path="/editar/:id" element={<PrivateRoute><EditarEmpleado /></PrivateRoute>} />
                 </Routes>
-            </Router>
+            </BrowserRouter>
         </AuthProvider>
     </>
   )
