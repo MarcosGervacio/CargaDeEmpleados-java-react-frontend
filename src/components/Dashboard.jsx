@@ -13,7 +13,7 @@ const Dashboard = () => {
         return <p>No autorizado. Por favor, inicia sesión.</p>;
     }
 
-    const urlBase = "http://localhost:8080/rh-app/empleados";
+    const urlBase = "https://accurate-recreation-production.up.railway.app/rh-app/empleados";
     
     const[empleados, setEmpleados] = useState([]);
 
@@ -25,7 +25,7 @@ const Dashboard = () => {
 
     const cargarEmpleados = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/rh-app/empleados", {
+            const response = await axios.get("https://accurate-recreation-production.up.railway.app/rh-app/empleados", {
                 headers: {
                     "Authorization": `Bearer ${token}`, // ✅ Enviar token JWT
                     "Content-Type": "application/json"

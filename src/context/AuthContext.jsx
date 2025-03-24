@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     // Función para loguear al usuario
     const login = async (email, password) => {
         try {
-            const response = await axios.post("http://localhost:8080/api/auth/login", 
+            const response = await axios.post("https://accurate-recreation-production.up.railway.app/api/auth/login", 
                 { email, password }, // ✅ Enviar datos como JSON
                 { headers: { "Content-Type": "application/json" } } // ✅ Especificar que es JSON
             );
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 
     const registro = async (email, password) => {
         try {
-            const response = await axios.post("http://localhost:8080/api/auth/register", 
+            const response = await axios.post("https://accurate-recreation-production.up.railway.app/api/auth/register", 
                 { email, password }, // ✅ Enviar datos como JSON
                 { headers: { "Content-Type": "application/json" } } // ✅ Especificar que es JSON
             );

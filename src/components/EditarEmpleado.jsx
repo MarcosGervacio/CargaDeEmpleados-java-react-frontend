@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from "../context/AuthContext";
 export default function EditarEmpleado() {
    const { token } = useContext(AuthContext);
-    const urlBase = "http://localhost:8080/rh-app/empleados";
+    const urlBase = "https://accurate-recreation-production.up.railway.app/rh-app/empleados";
 
     let navegacion = useNavigate();
 

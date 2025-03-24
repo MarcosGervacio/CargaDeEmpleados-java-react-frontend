@@ -1,10 +1,10 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { AuthContext } from "../context/AuthContext";
 export default function AgregarEmpleado() {
     let navegacion = useNavigate();
-
+   const { token } = useContext(AuthContext);
     const [empleado, setEmpleado]=useState({
         nombre:"",
         departamento:"",
@@ -20,9 +20,13 @@ export default function AgregarEmpleado() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        const urlBase = "http://localhost:8080/rh-app/empleados";
-        await axios.post(urlBase, empleado);
-        // Redirigimos a la pagina de inicio
+        const urlBase = "https://accurate-recreation-production.up.railway.app/rh-app/empleados";
+        await axios.post(urlBase, empleado, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}` // 🚀 Enviar el token JWT
+            }
+        });
         navegacion('/dashboard');
     }
 
