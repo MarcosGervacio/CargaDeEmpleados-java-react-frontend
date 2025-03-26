@@ -21,7 +21,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route exact path="/" element={<Login />} />
-                    <Route exact path="/registro" element={<PrivateRoute><Registro /></PrivateRoute>} />
+                    <Route exact path="/registro" element={<Registro />} />
                     <Route exact path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                     <Route exact path="/agregar" element={<PrivateRoute><AgregarEmpleado /></PrivateRoute>} />
                     <Route exact path="/editar/:id" element={<PrivateRoute><EditarEmpleado /></PrivateRoute>} />
