@@ -29,16 +29,19 @@ const Registro = () => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Email:</label>
+                    <br />
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
                 <div>
                     <label>Contraseña:</label>
+                    <br />
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
                 {error && <p style={{ color: "red" }}>{error}</p>}
                 <br />
                 <button type="submit">Registrarse</button>
             </form>
+            <br />
             <button><Link to="/">Volver</Link></button>
         </div>
     );

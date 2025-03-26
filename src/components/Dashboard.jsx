@@ -27,7 +27,7 @@ const Dashboard = () => {
         try {
             const response = await axios.get("https://accurate-recreation-production.up.railway.app/rh-app/empleados", {
                 headers: {
-                    "Authorization": `Bearer ${token}`, // ✅ Enviar token JWT
+                    "Authorization": `Bearer ${token}`, 
                     "Content-Type": "application/json"
                 }
             });
@@ -39,16 +39,21 @@ const Dashboard = () => {
     }
 
     const eliminarEmpleado = async (id) => {
-        try {
-            await axios.delete(`${urlBase}/${id}`, {
-                headers: {
-                    "Authorization": `Bearer ${token}`, // ✅ Enviar el token JWT
-                    "Content-Type": "application/json"
-                }
-            });
-            cargarEmpleados();
-        } catch (error) {
-            console.error("Error al eliminar el empleado:", error.response?.data || error.message);
+        if(user.rol == 'ROLE_ADMIN'){
+            try {
+                await axios.delete(`${urlBase}/${id}`, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`, 
+                        "Content-Type": "application/json"
+                    }
+                });
+                cargarEmpleados();
+            } catch (error) {
+                console.error("Error al eliminar el empleado:", error.response?.data || error.message);
+            }
+        }
+        else{
+            alert("Solo los administradores pueden eliminar empleados.");
         }
     };
 
