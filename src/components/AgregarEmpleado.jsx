@@ -58,7 +58,7 @@ export default function AgregarEmpleado() {
         </div>
         <div>
             <button type="submit">Agregar</button>
-            <a href='/'>Regresar</a>    
+            <a onClick={() => navegacion('/dashboard')}>Regresar</a>    
         </div>
         </form>
     </div>
